@@ -5,8 +5,8 @@ $ npm install
 ```
 
 ```bash
-Пред началом работы установите postgresql: https://www.postgresql.org/. После чего в файле .env замените строки пользователя, пароля, название и локалхоста на вашей локальной бд.
-Шаблоны для таблицы были созданы с помощью Prisma: https://www.prisma.io/docs/getting-started/
+- Пред началом работы установите postgresql: https://www.postgresql.org/. После чего в файле .env замените строки пользователя, пароля, название и локалхоста на вашей локальной бд.
+- Шаблоны для таблицы были созданы с помощью Prisma: https://www.prisma.io/docs/getting-started/
 ```
 
 
