@@ -23,28 +23,28 @@ export class UsersController {
 
   @Post()
   @UsePipes(new ValidationPipe())
-  create(@Body() createUserDto: CreateUserDto) {
+  async create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
   }
 
   @Get()
-  findAll() {
+  async findAll() {
     return this.usersService.findAll();
   }
 
   @Get(":id")
-  findOne(@Param("id") id: string) {
+  async findOne(@Param("id") id: string) {
     return this.usersService.findOne(+id);
   }
 
   @Patch(":id")
   @UsePipes(new ValidationPipe())
-  update(@Param("id") id: number, @Body() updateUserDto: UpdateUserDto) {
+  async update(@Param("id") id: number, @Body() updateUserDto: UpdateUserDto) {
     return this.usersService.update(+id, updateUserDto);
   }
 
   @Delete(":id")
-  remove(@Param("id") id: number) {
+  async remove(@Param("id") id: number) {
     return this.usersService.remove(+id);
   }
 }
