@@ -14,25 +14,13 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement())
-
+  id        Int      @id @default(autoincrement())
   name      String
   login     String   @unique
   password  String
   role      Role[]
   age       Int?
   last_name String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt()
-}
-
-model Flower {
-  id Int @id @default(autoincrement())
-
-  name  String @unique
-  color String
-  price Float
-
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt()
 }

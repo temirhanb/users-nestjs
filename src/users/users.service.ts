@@ -3,7 +3,6 @@ import {CreateUserDto} from "./dto/create-user.dto";
 import {UpdateUserDto} from "./dto/update-user.dto";
 import {PrismaService} from "../prisma.service";
 
-@Injectable()
 export class UsersService {
   constructor(
     private readonly prisma: PrismaService,
@@ -15,7 +14,20 @@ export class UsersService {
   }
 
   findAll() {
-    return this.prisma.user.findMany({select: {password: true, name: true, login: true}});
+    return this.prisma.user.findMany(
+      {
+        select:
+          {
+            id: true,
+            name: true,
+            login: true,
+            password: true,
+            age: true,
+            last_name: true,
+            createdAt: true,
+            updatedAt: true
+          }
+      });
   }
 
   findOne(id: number) {
