@@ -9,6 +9,7 @@ $ npm install
 - Шаблоны для таблицы были созданы с помощью Prisma: https://www.prisma.io/docs/getting-started/.
 - Mожете настроить собственный сервер и базу данных: https://docs.nestjs.com/techniques/database.
 - Основные комманды скриптов package.json не изменены.
+- Сервер и БД не деплою т.к в тестовом нет требований к этому =)
 ```
 
 ## Endpoints
