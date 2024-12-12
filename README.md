@@ -9,7 +9,6 @@ $ npm install
 - Шаблоны для таблицы были созданы с помощью Prisma: https://www.prisma.io/docs/getting-started/
 ```
 
-
 ## Endpoints
 
 ```bash

@@ -3,7 +3,7 @@ import {
   ClassSerializerInterceptor,
   Controller,
   Delete,
-  Get, Injectable,
+  Get,
   Param,
   Patch,
   Post,
@@ -12,8 +12,8 @@ import {
   ValidationPipe
 } from "@nestjs/common";
 import {UsersService} from "./users.service";
-import {CreateUserDto} from "./dto/create-user.dto";
 import {UpdateUserDto} from "./dto/update-user.dto";
+import {Prisma} from "@prisma/client";
 
 @Controller("users")
 @UseInterceptors(ClassSerializerInterceptor)
@@ -23,7 +23,7 @@ export class UsersController {
 
   @Post()
   @UsePipes(new ValidationPipe())
-  async create(@Body() createUserDto: CreateUserDto) {
+  async create(@Body() createUserDto: Prisma.UserCreateInput) {
     return this.usersService.create(createUserDto);
   }
 
@@ -33,7 +33,7 @@ export class UsersController {
   }
 
   @Get(":id")
-  async findOne(@Param("id") id: string) {
+  async findOne(@Param("id") id: number) {
     return this.usersService.findOne(+id);
   }
 

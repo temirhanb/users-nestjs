@@ -1,7 +1,6 @@
-import {CreateUserDto} from "./dto/create-user.dto";
+import {Injectable} from "@nestjs/common";
 import {UpdateUserDto} from "./dto/update-user.dto";
 import {PrismaService} from "../prisma/prisma.service";
-import {Injectable} from "@nestjs/common";
 
 @Injectable()
 export class UsersService {
@@ -10,8 +9,22 @@ export class UsersService {
   ) {
   }
 
-  async create(createUserDto: CreateUserDto) {
-    return this.prisma.user.create({data: createUserDto});
+  async create(data) {
+    return this.prisma.user.create({
+        include: {
+          role: true
+        },
+        data: {
+          ...data, role: {
+            connect: data?.role?.map(item => {
+              return {
+                id: item
+              };
+            }) || []
+          }
+        }
+      },
+    );
   }
 
   async findAll() {
@@ -32,14 +45,29 @@ export class UsersService {
   }
 
   async findOne(id: number) {
-    return this.prisma.user.findFirstOrThrow({where: {id: id}});
+    return this.prisma.user.findUnique({where: {id}, include: {role: true}});
   }
 
-  async update(id: number, updateUserDto: UpdateUserDto) {
-    return this.prisma.user.update({where: {id}, data: updateUserDto});
+  async update(id: number, data: UpdateUserDto) {
+    return this.prisma.user.update({
+      where: {id},
+      include: {
+        role: true
+      },
+      data: {
+        ...data, role: {
+          set: [],
+          connect: data?.role?.map(item => {
+            return {
+              id: item
+            };
+          }) || []
+        }
+      }
+    });
   }
 
   async remove(id: number) {
-    return this.prisma.user.delete({where: {id}});
+    return this.prisma.user.deleteMany({where: {id}});
   }
 }

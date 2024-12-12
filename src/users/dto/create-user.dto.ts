@@ -1,5 +1,4 @@
-import {IsEnum, IsInt, IsNotEmpty, IsOptional, IsString, IsStrongPassword, MinLength} from "class-validator";
-import {$Enums} from "@prisma/client";
+import {IsArray, IsInt, IsNotEmpty, IsOptional, IsString, IsStrongPassword, MinLength} from "class-validator";
 
 export class CreateUserDto {
   @IsString()
@@ -26,8 +25,8 @@ export class CreateUserDto {
   password: string;
 
   @IsOptional()
-  @IsEnum($Enums.Role)
-  role: Array<$Enums.Role>;
+  @IsArray()
+  role?: any;
 
   @IsOptional()
   @IsInt()

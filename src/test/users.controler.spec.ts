@@ -1,7 +1,6 @@
 import {Test} from "@nestjs/testing";
 import {UsersController} from "../users/users.controller";
 import {UsersService} from "../users/users.service";
-import {$Enums} from "@prisma/client";
 
 describe("UserController", () => {
 
@@ -11,7 +10,7 @@ describe("UserController", () => {
   let mockUsers = [{
     id: 1,
     name: "ivan",
-    role: [$Enums.Role[1]],
+    role: [{id: 0, name: "USER"}],
     age: 18,
     last_name: "",
     login: "ivanov",
@@ -21,7 +20,7 @@ describe("UserController", () => {
   }, {
     id: 2,
     name: "Petya",
-    role: [$Enums.Role[0]],
+    role: [{id: 1, name: "DEVELOPER"}, {id: 3, name: "TESTER"}],
     age: 18,
     last_name: "petrov",
     login: "petr",
@@ -59,7 +58,7 @@ describe("UserController", () => {
     const newUser = {
       id: 3,
       name: "ivan",
-      role: [$Enums.Role[1]],
+      role: [{id: 0, name: "USER"}],
       age: 18,
       last_name: "",
       login: "ivanov",
