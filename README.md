@@ -20,6 +20,12 @@ $ npm install
 
 #find user by id
 - http://localhost:3001/api/users/:id
+
+#find all roles
+- http://localhost:3001/api/roles
+
+#find roles by id
+- http://localhost:3001/api/roles/:id
 ```
 
 ## Running the app
