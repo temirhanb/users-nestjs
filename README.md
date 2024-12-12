@@ -6,7 +6,9 @@ $ npm install
 
 ```bash
 - Пред началом работы установите postgresql: https://www.postgresql.org/. После чего в файле .env замените строки пользователя, пароля, название и локалхоста на вашей локальной бд.
-- Шаблоны для таблицы были созданы с помощью Prisma: https://www.prisma.io/docs/getting-started/
+- Шаблоны для таблицы были созданы с помощью Prisma: https://www.prisma.io/docs/getting-started/.
+- Mожете настроить собственный сервер и базу данных: https://docs.nestjs.com/techniques/database.
+- Основные комманды скриптов package.json не изменены.
 ```
 
 ## Endpoints
